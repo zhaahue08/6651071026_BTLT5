@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4 - In số lẻ</title>
+</head>
+
+<body>
+    <h2>Kết quả Câu 4:</h2>
+    <script>
+        var daySo = [];
+        for (var i = 1; i < 100; i += 2) {
+            if (i === 5 || i === 7 || i === 93) {
+                continue;
+            }
+            daySo.push(i);
+        }
+        document.write("Các số lẻ nhỏ hơn 100 (trừ 5, 7, 93):<br><br>");
+        document.write(daySo.join(", "));
+    </script>
+</body>
+
+</html>

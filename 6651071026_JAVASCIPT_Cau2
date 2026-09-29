@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2 - Kiểm tra năm nhuận</title>
+</head>
+
+<body>
+    <h2>Kết quả Câu 2:</h2>
+    <script>
+        var year = parseInt(prompt("Nhập năm cần kiểm tra:", "2024"));
+        var isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+        if (isLeapYear) {
+            document.write("Năm " + year + " là năm nhuận.");
+        } else {
+            document.write("Năm " + year + " không phải là năm nhuận.");
+        }
+    </script>
+</body>
+
+</html>

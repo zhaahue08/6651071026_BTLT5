@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3 - Tìm số lớn nhất</title>
+</head>
+
+<body>
+    <h2>Kết quả Câu 3:</h2>
+    <script>
+        var num1 = 15,
+            num2 = 28,
+            num3 = 9;
+        var maxVal = Math.max(num1, num2, num3);
+
+        document.write("Ba số cho trước: " + num1 + ", " + num2 + ", " + num3 + "<br>");
+        document.write("Số lớn nhất là: <b>" + maxVal + "</b>");
+    </script>
+</body>
+
+</html>

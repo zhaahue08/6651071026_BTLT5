@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1 - Diện tích tam giác</title>
+</head>
+<body>
+    <h2>Kết quả Câu 1:</h2>
+    <p id="result"></p>
+
+    <script>
+        window.onload = function () {
+            let a = 5, b = 6, c = 7;
+            let p = (a + b + c) / 2;
+            let s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+            // 1. Console
+            console.log("Diện tích tam giác là: " + s.toFixed(2));
+
+            // 2. Hộp thoại alert
+            alert("Diện tích tam giác là: " + s.toFixed(2));
+
+            // 3. Giao diện trang web
+            document.getElementById("result").innerText =
+                "Diện tích tam giác là: " + s.toFixed(2);
+        };
+    </script>
+</body>
+</html>
