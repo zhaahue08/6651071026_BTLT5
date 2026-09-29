@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 27 - Xóa dòng trong bảng</title>
+</head>
+
+<body>
+    <table id="tblOrders" border="1" cellpadding="6" cellspacing="0">
+        <tr>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Tổng</th>
+            <th>Chức năng</th>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1000000</td>
+            <td>2000000</td>
+            <td><input type="button" value="Xóa" onclick="xoaDong(this)"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>500000</td>
+            <td>500000</td>
+            <td><input type="button" value="Xóa" onclick="xoaDong(this)"></td>
+        </tr>
+    </table>
+
+    <script>
+        function xoaDong(btn) {
+            // Nút nằm trong <td>, <td> nằm trong <tr> (hàng)
+            var td = btn.parentNode;
+            var tr = td.parentNode;
+            var rowIndex = tr.rowIndex;
+
+            // Xóa hàng tương ứng trong bảng
+            document.getElementById("tblOrders").deleteRow(rowIndex);
+        }
+    </script>
+</body>
+
+</html>

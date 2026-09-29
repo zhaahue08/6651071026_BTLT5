@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 23 - Tính tiền lương</title>
+</head>
+
+<body>
+    <form name="salaryForm">
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <td>Lương</td>
+                <td><input type="text" id="luong" value="1000000"></td>
+            </tr>
+            <tr>
+                <td>Hệ số lương</td>
+                <td><input type="text" id="heSo" value="3.2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" value="Tính lương tháng" onclick="tinhLuong()">
+                </td>
+            </tr>
+            <tr>
+                <td>Lương tháng</td>
+                <td><input type="text" id="luongThang" readonly></td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function tinhLuong() {
+            var luong = parseFloat(document.getElementById("luong").value);
+            var heSo = parseFloat(document.getElementById("heSo").value);
+            var ketQua = luong * heSo;
+            document.getElementById("luongThang").value = ketQua;
+        }
+    </script>
+</body>
+
+</html>

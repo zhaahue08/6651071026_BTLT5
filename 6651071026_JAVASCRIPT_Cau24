@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 24 - Xuất thứ trong tuần</title>
+</head>
+
+<body>
+    <form name="dateForm">
+        Ngày <input type="text" id="day" size="5" value="12"> Tháng
+        <select id="month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select> Năm <input type="text" id="year" size="6" value="2015">
+        <br><br>
+        <input type="button" value="Xuất thứ" onclick="xuatThu()">
+        <br><br>
+        <div id="ketQuaThu" style="font-weight: bold;"></div>
+    </form>
+
+    <script>
+        function xuatThu() {
+            var d = parseInt(document.getElementById("day").value);
+            var m = parseInt(document.getElementById("month").value);
+            var y = parseInt(document.getElementById("year").value);
+
+            // Tháng trong Date tính từ 0 đến 11
+            var dateObj = new Date(y, m - 1, d);
+            var thuIndex = dateObj.getDay();
+
+            var mangThu = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
+            var tenThu = mangThu[thuIndex];
+
+            var chuoi = tenThu + " Ngày " + d + " tháng " + m + " năm " + y;
+            document.getElementById("ketQuaThu").innerHTML = chuoi;
+        }
+    </script>
+</body>
+
+</html>

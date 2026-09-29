@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 25 - Thực đơn tính tiền</title>
+</head>
+
+<body>
+    <h2>THỰC ĐƠN</h2>
+    <form name="menuForm">
+        <table border="0" cellpadding="8">
+            <tr valign="top">
+                <td>
+                    <b>Thức ăn</b><br>
+                    <select id="food" size="7" multiple style="width: 150px;">
+                        <option value="20000">Bún bò</option>
+                        <option value="18000">Hủ tiếu</option>
+                        <option value="17000">Bánh canh</option>
+                        <option value="19000">Phở bò</option>
+                        <option value="15000">Nuôi</option>
+                        <option value="12000">Bánh mì thịt</option>
+                        <option value="15000">Bánh cuốn</option>
+                    </select>
+                </td>
+                <td>
+                    <b>Nước uống</b><br>
+                    <select id="drink" size="7" multiple style="width: 150px;">
+                        <option value="12000">Cà phê đá</option>
+                        <option value="15000">Cà phê sữa đá</option>
+                        <option value="13000">Chanh dây</option>
+                        <option value="12000">Chanh muối</option>
+                        <option value="14000">Xí muội</option>
+                        <option value="13000">Sữa tươi</option>
+                        <option value="17000">Cam vắt</option>
+                    </select>
+                </td>
+                <td>
+                    <b>Thời điểm</b><br>
+                    <input type="radio" name="thoidiem" id="daytime" value="day" checked> Ban ngày<br>
+                    <input type="radio" name="thoidiem" id="nighttime" value="night"> Ban đêm (+10%)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="button" value="Tính tiền" onclick="tinhTien()">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="hoaDon"></div>
+
+    <script>
+        function tinhTien() {
+            var foodSelect = document.getElementById("food");
+            var drinkSelect = document.getElementById("drink");
+            var isNight = document.getElementById("nighttime").checked;
+
+            var dsMon = [];
+            var dsGia = [];
+            var tongTien = 0;
+
+            // Lấy các món ăn đã chọn
+            for (var i = 0; i < foodSelect.options.length; i++) {
+                if (foodSelect.options[i].selected) {
+                    var ten = foodSelect.options[i].text;
+                    var gia = parseInt(foodSelect.options[i].value);
+                    dsMon.push(ten);
+                    dsGia.push(gia);
+                    tongTien += gia;
+                }
+            }
+
+            // Lấy các nước uống đã chọn
+            for (var j = 0; j < drinkSelect.options.length; j++) {
+                if (drinkSelect.options[j].selected) {
+                    var tenNuoc = drinkSelect.options[j].text;
+                    var giaNuoc = parseInt(drinkSelect.options[j].value);
+                    dsMon.push(tenNuoc);
+                    dsGia.push(giaNuoc);
+                    tongTien += giaNuoc;
+                }
+            }
+
+            // Phụ thu ban đêm 10%
+            if (isNight) {
+                tongTien = tongTien + tongTien * 0.1;
+            }
+
+            // Tạo bảng xuất hóa đơn
+            var html = "<h3>Các món đã dùng</h3>";
+            html += "<table border='1' cellpadding='5' cellspacing='0' width='300'>";
+            html += "<tr><th>Món</th><th>Tiền</th></tr>";
+
+            for (var k = 0; k < dsMon.length; k++) {
+                html += "<tr><td>" + dsMon[k] + "</td><td>" + dsGia[k] + "</td></tr>";
+            }
+
+            html += "<tr><td><b>Tổng tiền</b></td><td><b>" + tongTien + " đồng</b></td></tr>";
+            html += "</table>";
+
+            document.getElementById("hoaDon").innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

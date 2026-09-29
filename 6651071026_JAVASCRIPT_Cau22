@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 22 - Nhân và Chia</title>
+</head>
+
+<body>
+    <form name="calcForm">
+        1st Number : <input type="text" id="num1" value="12"><br><br> 2nd Number: <input type="text" id="num2" value="10"><br><br>
+        <input type="button" value="Multiply" onclick="multiply()">
+        <input type="button" value="Divide" onclick="divide()"><br><br> The Result Is : <br>
+        <span id="result"></span>
+    </form>
+
+    <script>
+        function multiply() {
+            var n1 = parseFloat(document.getElementById("num1").value);
+            var n2 = parseFloat(document.getElementById("num2").value);
+            var res = n1 * n2;
+            document.getElementById("result").innerHTML = res;
+        }
+
+        function divide() {
+            var n1 = parseFloat(document.getElementById("num1").value);
+            var n2 = parseFloat(document.getElementById("num2").value);
+            if (n2 === 0) {
+                document.getElementById("result").innerHTML = "Không thể chia cho 0";
+            } else {
+                var res = n1 / n2;
+                document.getElementById("result").innerHTML = res;
+            }
+        }
+    </script>
+</body>
+
+</html>
